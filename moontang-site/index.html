@@ -8,32 +8,191 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
   <style>
-    body { margin: 0; background: #0a0e17; color: #fdf6e3; font-family: 'Poppins', sans-serif; }
-    header, section, footer { text-align: center; padding: 2rem 1rem; }
-    h1 { color: #ffd54f; }
-    .cta { margin-top: 1.5rem; padding: 0.75rem 2rem; background: #ffd54f; color: #000; border-radius: 9999px; text-decoration: none; font-weight: bold; }
+    :root {
+      --bg: #0a0e17;
+      --accent: #ffd54f;
+      --accent-dark: #e0a72d;
+      --text: #fdf6e3;
+      --muted: #8e94a9;
+      --rocket-red: #a1392d;
+      --orange-flame: #f3a721;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    header img {
+      width: 240px;
+      max-width: 90%;
+      margin-bottom: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(255, 213, 79, 0.3);
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+      color: var(--muted);
+    }
+
+    .cta {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.75rem 2rem;
+      background: var(--accent);
+      color: #000;
+      border-radius: 9999px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.25s ease;
+    }
+
+    .cta:hover {
+      background: var(--accent-dark);
+    }
+
+    section {
+      padding: 3rem 1rem;
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .features {
+      display: grid;
+      gap: 2rem;
+    }
+
+    @media (min-width: 640px) {
+      .features {
+        grid-template-columns: repeat(3, 1fr);
+        text-align: left;
+      }
+    }
+
+    .feature {
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 1rem;
+      backdrop-filter: blur(6px);
+    }
+
+    #tokenomics,
+    #roadmap {
+      position: relative;
+    }
+
+    #tokenomics::before,
+    #roadmap::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 120px;
+      background-image: url('E8658407-22AC-481C-BDDE-5BA9894DF5D0.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.05;
+      z-index: 0;
+    }
+
+    #tokenomics p,
+    #roadmap p {
+      margin: 1rem 0;
+      font-size: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    .socials a {
+      margin: 0 0.5rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
   <header>
+    <img src="E8658407-22AC-481C-BDDE-5BA9894DF5D0.png" alt="Moontang Rocket Logo" />
     <h1>Moontang ($MTANG)</h1>
-    <p>The reflexive meme coin that amplifies the giants.</p>
+    <p class="tagline">The reflexive meme coin that amplifies the giants.</p>
     <a href="#buy" class="cta">Buy on DEX</a>
   </header>
+
   <section>
     <h2>Why Moontang?</h2>
-    <p>MTANG mirrors BTC, ETH, SOL, XRP and rides their momentum with meme-fueled torque.</p>
+    <div class="features">
+      <div class="feature">
+        <h3>Correlated Momentum</h3>
+        <p>MTANG algorithmically echoes BTC, ETH, SOL & XRP. When they rise, Moontang responds with meme‑powered torque.</p>
+      </div>
+      <div class="feature">
+        <h3>Community‑First</h3>
+        <p>Driven by holders, fueled by viral culture. Governance and big decisions sit with our DAO.</p>
+      </div>
+      <div class="feature">
+        <h3>High‑Beta Exposure</h3>
+        <p>Get leverage‑like upside without margin. MTANG compresses market sentiment into explosive price action.</p>
+      </div>
+    </div>
   </section>
-  <section>
-    <h2>Tokenomics</h2>
-    <p>50% Liquidity • 20% Community • 15% Treasury • 10% Strategic • 5% Founders</p>
+
+  <section id="tokenomics">
+    <h2>Tokenomics Snapshot</h2>
+    <p><strong>Total Supply:</strong> 1,000,000,000 MTANG</p>
+    <p><strong>Liquidity Genesis (50%):</strong> Locked in perpetuity to ensure stability and trust.</p>
+    <p><strong>Community Allocation (20%):</strong> Airdrops, meme contests, and DAO incentives.</p>
+    <p><strong>Treasury Reserve (15%):</strong> Used for ecosystem growth, liquidity incentives, and surprise burns.</p>
+    <p><strong>Strategic Vault (10%):</strong> Partnership and cross-chain expansion incentives.</p>
+    <p><strong>Founding Contributors (5%):</strong> Vested linearly over 18 months to align long-term vision.</p>
   </section>
-  <section>
-    <h2>Roadmap</h2>
-    <p>Ignition → Lift Off → Lunar Orbit → Galactic Sync → Wormhole Expansion</p>
+
+  <section id="roadmap">
+    <h2>Moontang Roadmap</h2>
+    <p><strong>Phase 1 – Ignition:</strong> Smart contract audit, liquidity launch, meme launch campaign, verified DEX listings.</p>
+    <p><strong>Phase 2 – Lift Off:</strong> DAO formation, NFT meme fusion drops, influencer partnerships, trend‑based burn events.</p>
+    <p><strong>Phase 3 – Lunar Orbit:</strong> Major CEX listings, ecosystem dashboard, $MTANG staking with meme-based multipliers.</p>
+    <p><strong>Phase 4 – Galactic Sync:</strong> Chainlink & oracle integration, auto-peg system to market momentum, cross-chain bridge.</p>
+    <p><strong>Phase 5 – Wormhole Expansion:</strong> Moontang Metaverse outpost, Meme-2-Earn platform, AI sentiment integration.</p>
   </section>
+
   <footer>
-    <p>© 2025 Moontang DAO • <a href="https://x.com/moontangcoin?s=11">Twitter</a> • <a href="https://t.me/Moontang">Telegram</a></p>
+    <div class="socials">
+      <a href="https://x.com/moontangcoin?s=11" target="_blank">Twitter</a>·
+      <a href="https://t.me/Moontang" target="_blank">Telegram</a>·
+      <a href="mailto:hello@moontang.io">Email</a>
+    </div>
+    <p>© 2025 Moontang DAO. All rights reserved.</p>
   </footer>
 </body>
 </html>
